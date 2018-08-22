@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '6.4.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -262,6 +262,9 @@
   
 
   
+    
+
+  
 
   
 </nav>
@@ -281,9 +284,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -386,8 +386,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/21/markdown语法学习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -525,15 +532,19 @@
       
         
           
-            <ul>
-<li>断断续续，博客第二次大致成型，框架有了，接下来是配置方面,等想到，有需求的时候在加上，省去好多不必要的功能。</li>
-<li>越来越懂得，两个原则的重要意义:简约，低调。</li>
-<li>王者必须慢慢戒掉</li>
-<li>系统化的学习linux,以前都是为了快速达到自己想要的结果，东拼西凑的学习，现在感觉，得不偿失，浪费了大量时间，却没有什么收获，往往半途而废<br>，书到用时方恨少，改变学习方式，淡化目的性，而突出过程性，争取面面俱到，希望最后，结果是自然而然。</li>
-<li>没能力时，独善其身；有能力时，勿忘初心。</li>
-</ul>
-
           
+断断续续，博客第二次大致成型，框架有了，接下来是配置方面,等想到，有需求的时候在加上，省去好多不必要的功能。
+越来越懂得，两个原则的重要意义:简约，低调。
+王者必须慢慢戒掉
+系统化的学习linux,
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/21/计划书/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -667,8 +678,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/21/时代三部曲/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -818,31 +836,22 @@
       
         
           
-            <ul>
-<li>pwd:显示当前路径</li>
-<li>clear 清屏 </li>
-<li>mkdir +文件夹 创建一个新文件夹</li>
-<li>cd..:退回上一层目录</li>
-<li>cd~:返回home目录</li>
-<li>cd - :返回上一次路径</li>
-<li>ls &gt; xxx.txt 把应该显示在屏幕上的内容保存到xxx.txt</li>
-<li>ls &gt;&gt; xxx.txt 追加</li>
-<li>grep -n -v “要搜索内容” 文件 -n 行数 -v 不包含此搜索内容</li>
-<li>sudo reboot 重启</li>
-<li>touch 创建一个新文件</li>
-<li>rm +文件名 删除文件</li>
-<li>cat:显示或编辑文本文件</li>
-<li>man 命令，查看文档</li>
-<li>linux中所有可读取设备都必须挂载之后才能使用，系统硬盘分区是linux的系统开机自动挂载的 所有的可读取设备都有一个设备文件名，挂载就是将设备文件名和挂载点(任意一个空目录)连接起来</li>
-<li>ls:显示当前目录下文件或目录</li>
-<li>ls / 显示指定文件夹下文件</li>
-<li>ls -a 显示隐藏文件</li>
-<li>ls -l 显示详细信息</li>
-<li>并且参数可以叠加 没有先后顺序</li>
-<li></li>
-</ul>
-
           
+pwd:显示当前路径
+clear 清屏 
+mkdir +文件夹 创建一个新文件夹
+cd..:退回上一层目录
+cd~:返回home目录
+cd - :返回上一次路径
+ls &gt; xxx.txt 把应
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/21/linux基础/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -992,11 +1001,16 @@
       
         
           
-            <ul>
-<li>Python提供两种级别的网络服务访问,在较低级别,可以访问底层操作系统中的基本套接字支持，这允许为面向连接的协议和无连接协议实现客户端和服务器。<br>Python还具有库，可以提供对特定应用程序级网络协议的更高级别访问，例如FTP，HTTP等。<br>套接字是双向通信信道的端点。套接字可以在进程内，同一台机器上的进程之间或不同大洲的进程之间进行通信。<br>套接字可以在许多不同的通道类型上实现：Unix域套接字，TCP，UDP等。该socket库提供特定的类来处理常见的传输以及用于处理其余的通用接口。</li>
-</ul>
-
           
+Python提供两种级别的网络服务访问,在较低级别,可以访问底层操作系统中的基本套接字支持，这允许为面向连接的协议和无连接协议实现客户端和服务器。Python还具有库，可以提供对特定应用程序级网络协
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/20/计算机网络/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1130,17 +1144,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pro
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/20/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1378,13 +1390,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
-
-
 
   
 
