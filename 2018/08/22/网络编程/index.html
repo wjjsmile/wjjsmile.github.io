@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或应用程序进程需要网络通信时，它向主机申请一个端">
+  <meta name="description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535同一个os中，同一时间，同一个端口不能重复使用端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或">
 <meta name="keywords" content="网络编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络编程">
 <meta property="og:url" content="http://yoursite.com/2018/08/22/网络编程/index.html">
 <meta property="og:site_name" content="孤月">
-<meta property="og:description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或应用程序进程需要网络通信时，它向主机申请一个端">
+<meta property="og:description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535同一个os中，同一时间，同一个端口不能重复使用端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T14:12:53.886Z">
+<meta property="og:updated_time" content="2018-08-22T14:50:20.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程">
-<meta name="twitter:description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或应用程序进程需要网络通信时，它向主机申请一个端">
+<meta name="twitter:description" content="Tcp/ip协议(族): 应用层(http ftp) 传输层(tcp udp) 网络层(ip) 网络接口层 端口理解： 用来标记，区分不同进程。端口号只有整数，范围从0到65535同一个os中，同一时间，同一个端口不能重复使用端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp 动态端口 从1024到65535 一般不固定分配某种服务，动态分配动态分配: 当一个系统进程或">
 
 
 
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-08-22 21:15:36 / Modified: 22:12:53" itemprop="dateCreated datePublished" datetime="2018-08-22T21:15:36+08:00">2018-08-22</time>
+              <time title="Created: 2018-08-22 21:15:36 / Modified: 22:50:20" itemprop="dateCreated datePublished" datetime="2018-08-22T21:15:36+08:00">2018-08-22</time>
             
 
             
@@ -392,7 +392,7 @@
 <li>网络层(ip)</li>
 <li>网络接口层</li>
 <li>端口理解：</li>
-<li>用来标记，区分不同进程。端口号只有整数，范围从0到65535<br>端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp</li>
+<li>用来标记，区分不同进程。端口号只有整数，范围从0到65535<br>同一个os中，同一时间，同一个端口不能重复使用<br>端口分类：知名端口，从0到1023 80分配给http服务 21分配给ftp</li>
 <li>动态端口 从1024到65535 一般不固定分配某种服务，动态分配<br>动态分配: 当一个系统进程或应用程序进程需要网络通信时，它向主机申请一个端口，主机从可用的端口号中分配一个供它使用，当进程关闭，释放所占端口号</li>
 <li>netatat -an 查看端口状态</li>
 <li>ip 每一个ip地址包括:网络地址 主机地址  ABCDE类 一般计算机常用的是C类 </li>
@@ -400,6 +400,8 @@
 <li>私有ip 有一部分ip地址用于局域网使用，不在公网中使用</li>
 <li>广播 在同一局域网内主机都能接收数据</li>
 <li>ip 127.0.0.1 可以用于网络测试</li>
+<li><a href="https://127.0.0.1" target="_blank" rel="noopener">https://127.0.0.1</a> 可以用于查看配置在本机上的web服务器</li>
+<li>本地进程间通信(IPC)</li>
 </ul>
 
       
@@ -443,6 +445,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/22/vim基础/" rel="prev" title="vim基础">
+                vim基础 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -503,7 +509,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -522,7 +528,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
