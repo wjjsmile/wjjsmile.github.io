@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="孤月">
 <meta property="og:description" content="pwd:显示当前路径 clear 清屏  mkdir +文件夹 创建一个新文件夹 cd..:退回上一层目录 cd~:返回home目录 cd - :返回上一次路径 ls &amp;gt; xxx.txt 把应该显示在屏幕上的内容保存到xxx.txt ls &amp;gt;&amp;gt; xxx.txt 追加 grep -n -v “要搜索内容” 文件 -n 行数 -v 不包含此搜索内容 sudo reboot 重启 t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T14:46:10.278Z">
+<meta property="og:updated_time" content="2018-08-23T14:09:26.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux基础">
 <meta name="twitter:description" content="pwd:显示当前路径 clear 清屏  mkdir +文件夹 创建一个新文件夹 cd..:退回上一层目录 cd~:返回home目录 cd - :返回上一次路径 ls &amp;gt; xxx.txt 把应该显示在屏幕上的内容保存到xxx.txt ls &amp;gt;&amp;gt; xxx.txt 追加 grep -n -v “要搜索内容” 文件 -n 行数 -v 不包含此搜索内容 sudo reboot 重启 t">
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-22 22:46:10" itemprop="dateModified" datetime="2018-08-22T22:46:10+08:00">2018-08-22</time>
+                <time title="Modified: 2018-08-23 22:09:26" itemprop="dateModified" datetime="2018-08-23T22:09:26+08:00">2018-08-23</time>
               
             
           </span>
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">421</span>
+                <span title="Symbols count in article">1.1k</span>
               
 
               
@@ -439,13 +439,35 @@
 <li>touch 创建一个新文件</li>
 <li>rm +文件名 删除文件</li>
 <li>cat:显示或编辑文本文件</li>
-<li>man 命令，查看文档</li>
+<li>man+命令，查看某一个命令文档 /关键词 搜索功能 n 下一个 q 退出文档</li>
 <li>linux中所有可读取设备都必须挂载之后才能使用，系统硬盘分区是linux的系统开机自动挂载的 所有的可读取设备都有一个设备文件名，挂载就是将设备文件名和挂载点(任意一个空目录)连接起来</li>
 <li>ls:显示当前目录下文件或目录</li>
 <li>ls / 显示指定文件夹下文件</li>
 <li>ls -a 显示隐藏文件</li>
 <li>ls -l 显示详细信息</li>
 <li>并且参数可以叠加 没有先后顺序</li>
+<li>echo 命令用于在终端显示字符串或变量 格式 : echo [字符串/变量]</li>
+<li>echo $SHELL 查看SHELL变量的值 (前面有$符号)</li>
+<li>echo $HOSTNAME 查看主机名</li>
+<li>date 查看系统时间</li>
+<li>reboot 重启系统</li>
+<li>wget 下载网络文件 wget[参数] 下载地址</li>
+<li>-b 后台下载模式 -O 下载到指定目录 -t 最大尝试次数 -c 断点断传</li>
+<li>-p 下载页面内所有资源，包括picture video -r 递归下载</li>
+<li>elinks[参数] 网址 纯文本性质浏览器</li>
+<li>ifconfig 获取网卡配置 与网络状态等信息 ifconfig [网络设备][参数]</li>
+<li>uname 系统内核名称，版本,内核发行版，节点名，硬件名称，硬件平台，处理器类型。操作系统等信息 uname [-a]</li>
+<li>uptime 查看系统负载情况  输出内容 系统当前时间 系统已运行时间 当前在线用户 平均负载值(分为最近一分钟 5 分钟 15 mins 系统负载情况)，越低越好 &lt;1 正常</li>
+<li>watch -n 1 update 每秒刷新一次获得当前系统的负载情况</li>
+<li>free[-m/-g] 内存使用情况 m g 单位</li>
+<li>who[参数] 用户情况</li>
+<li>last [参数] 查看所有系统登入记录</li>
+<li>history [-c]历史命令 会被保存到用户家目录.bash_history </li>
+<li>-c 清空</li>
+<li><p>sosreport 手机系统配置并诊断信息后，输出结论文档</p>
+</li>
+<li></li>
+<li></li>
 </ul>
 
       
@@ -662,7 +684,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">4 mins.</span>
+    <span title="Reading time total">5 mins.</span>
   
 </div>
 
