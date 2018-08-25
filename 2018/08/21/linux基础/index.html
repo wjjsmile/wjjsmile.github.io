@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="孤月">
 <meta property="og:description" content="pwd:显示当前路径 clear 清屏  mkdir +文件夹 创建一个新文件夹 cd..:退回上一层目录 cd~:返回home目录 cd - :返回上一次路径 ls &amp;gt; xxx.txt 把应该显示在屏幕上的内容保存到xxx.txt ls &amp;gt;&amp;gt; xxx.txt 追加 grep -n -v “要搜索内容” 文件 -n 行数 -v 不包含此搜索内容 sudo reboot 重启 t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T02:00:50.178Z">
+<meta property="og:updated_time" content="2018-08-25T06:15:49.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux基础">
 <meta name="twitter:description" content="pwd:显示当前路径 clear 清屏  mkdir +文件夹 创建一个新文件夹 cd..:退回上一层目录 cd~:返回home目录 cd - :返回上一次路径 ls &amp;gt; xxx.txt 把应该显示在屏幕上的内容保存到xxx.txt ls &amp;gt;&amp;gt; xxx.txt 追加 grep -n -v “要搜索内容” 文件 -n 行数 -v 不包含此搜索内容 sudo reboot 重启 t">
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-24 10:00:50" itemprop="dateModified" datetime="2018-08-24T10:00:50+08:00">2018-08-24</time>
+                <time title="Modified: 2018-08-25 14:15:49" itemprop="dateModified" datetime="2018-08-25T14:15:49+08:00">2018-08-25</time>
               
             
           </span>
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.3k</span>
+                <span title="Symbols count in article">2.8k</span>
               
 
               
@@ -436,7 +436,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -498,8 +498,32 @@
 <li>sosreport 手机系统配置并诊断信息后，输出结论文档</li>
 <li>top 任务管理器 实时显示系统上运行的进程的情况</li>
 <li>默认按CPU使用率降序排序,COMMAND 进程名(启动他们的命令),PID 进程ID 一个用来定位进程得唯一标识符 USER 运行进程的用户  PR 任务优先级 NI nice值 优先级的一个更好表现形式 VIRT 虚拟内存大小(内存使用) 单位kiB  RES 常驻内存大小 kib   SHR 共享内存大小 S:进程状态 </li>
-<li></li>
-<li></li>
+<li>nslookup 网址 查看网址服务器基本信息</li>
+<li>IPv4 32位数字地址 IPV6 128位</li>
+<li>cn 地区 com 商业机构 www 主机名</li>
+<li>NAT(Network Address Translation) 网络地址转换 NAT 能将其本地地址转换成全球ip地址，内网主机已经有本地ip地址(局域网DHCP分配的ip),若想和Internet 上的主机通信并不需要加密) ，可以使用NAT 方法,通过使用少量的公有IP 地址代表较多的私有IP 地址的方式，将有助于减缓可用的IP地址空间的枯竭。NAT不仅能解决了lP地址不足与共享上网的问题，而且还能够有效地避免来自网络外部的攻击，隐藏并保护网络内部的计算机。</li>
+<li>NAT的实现方式：</li>
+<li>静态转换是指将内部网络的私有IP地址转换为公有IP地址，IP地址对是一对一。</li>
+<li>动态转换是指将内部网络的私有IP地址转换为公用IP地址时，IP地址是不确定的，是随机的。</li>
+<li>端口多路复用（Port address Translation,PAT)，内部网络的所有主机均可共享一个合法外部IP地址实现对Internet的访问，从而可以最大限度地节约IP地址资源。同时又可隐藏网络内部的所有主机，有效避免来自internet的攻击。因此，目前网络中应用最多的就是端口多路复用方式。</li>
+<li>应用程序级网关技术（Application Level Gateway）ALG：传统的NAT技术只对IP层和传输层头部进行转换处理，ALG它能对这些应用程序在通信时所包含的地址信息也进行相应的NAT转换。</li>
+<li>Proxy (代理)</li>
+<li>正向代理(隐藏真实的请求客户端，如某些科学上网工具)</li>
+<li>反向代理(隐藏真实的服务器) </li>
+<li>在计算机世界里，由于单个服务器的处理客户端（用户）请求能力有一个极限，当用户的接入请求蜂拥而入时，会造成服务器忙不过来的局面，可以使用多个服务器来共同分担成千上万的用户请求，这些服务器提供相同的服务，对于用户来说，根本感觉不到任何差别。</li>
+<li>反向代理的实现</li>
+<li>1）需要有一个负载均衡设备来分发用户请求，将用户请求分发到空闲的服务器上</li>
+<li>2）服务器返回自己的服务到负载均衡设备</li>
+<li>3）负载均衡将服务器的服务返回用户以上的潜台词是：用户和负载均衡设备直接通信，也意味着用户做服务器域名解析时，解析得到的IP其实是负载均衡的IP，而不是服务器的IP，这样有一个好处是，当新加入/移走服务器时，仅仅需要修改负载均衡的服务器列表，而不会影响现有的服务</li>
+<li>代理</li>
+<li>1）用户希望代理服务器帮助自己和要访问服务器通信，为了实现此目标，需要以下工作：</li>
+<li>a) 用户IP报文的目的IP = 代理服务器IP</li>
+<li>b) 用户报文端口号 = 代理服务器监听端口号</li>
+<li>c) HTTP 消息里的URL要提供服务器的链接</li>
+<li>2）代理服务器可以根据c)里的链接与服务器直接通信</li>
+<li>3）服务器返回网页</li>
+<li>4）代理服务器打包3）中的网页，返回用户。代理服务器应用场景</li>
+<li>场景一如果不采用代理，用户的IP、端口号直接暴露在Internet（尽管地址转换NAT），外部主机依然可以根据IP、端口号来开采主机安全漏洞，所以在企业网，一般都是采用代理服务器访问互联网。那代理服务器就没有安全漏洞吗？相比千千万万的用户主机，代理服务器数量有限，修补安全漏洞更方便快捷。<br>场景二在一个家庭局域网，家长觉得外部的世界是洪水猛兽，为了不让小盆友们学坏，决定不让小盆友们访问一些网站，可小盆友们有强烈的逆反心理，侬越是不让我看，我越是想看，于是小盆友们使用了代理服务器，这些代理服务器将禁止访问的网页打包好，然后再转交给小盆友，仅此而已。当然关键的关键是代理服务器不在禁止名单当中！</li>
 </ul>
 
       
@@ -720,7 +744,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">5k</span>
+    <span title="Symbols count total">7k</span>
   
 
   
@@ -729,7 +753,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">6 mins.</span>
   
 </div>
 
