@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://blog.51cto.com/13589319/2121760 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="favicon" rel="shortcut icon" href="http://blog.51cto.com/favicon.ico">
+        <title>Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客</title>
+    <meta name="keywords" content="Vultr,搭建,SS,Vultr  ">
+<meta name="description" content="我这边是用ubuntu在海外服务器上（Vultr）部署的SS，下面来教大家怎么搭（文末附带工具下载地址）：一、购买服务器要搭***，首先得有一个香港或者海外的服务器，这里我用的是Vultr，经过对比Vultr的性价比很高：速度、价格（最便宜的2.5美元）、流量都很不错，如果只用来搭***搓搓有余，还能额外建个小网站。而且可以用支付宝来支付。1、注册：Vultr注册网址：点击进入2、充值：Vultr可以">    <link href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/header.css" rel="stylesheet"><link href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/other.css" rel="stylesheet"><link href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/right.css" rel="stylesheet"><link href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/blog_details.css" rel="stylesheet"><link href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/highlight.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/vds.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/push.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/hm.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/jquery.min.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/cookie.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/login.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/common.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/mbox.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/follow.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/vip.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/window.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/share.js"></script><style></style><link rel="stylesheet" href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/share_style0_16.css"></head>
+<body>
+<img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/share_default.jpg" border="0" style="width:0; height:0; position:absolute;">
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<div id="topbanner14" style="position: relative;width:100%;height:60px;">
+<a class="close fl" href="javascript:;" style="position:absolute;width:13px;height:13px;top:0px;z-index: 20;background: url(&#39;http://i2.51cto.com/images/blog/201808/23/0363c65f527ea7c9880ab5f275303d1a.png&#39;) 0 0 no-repeat;background-size: 100% 100%;left: 50%;margin-left: 587px;"></a>
+<a href="http://blog.51cto.com/cloumn/index" target="_blank">
+  <img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/06a2b64882e0e027defd7dadab18703b.jpg" alt="" style="position:absolute;width:1200px;height:60px;margin-left: -600px;left:50%;z-index: 10;">
+</a>
+  <img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/e456479b85356429c24b27d5b62189bc.png" alt="" style="position:absolute;width:100%;height:60px;z-index:1;">
+</div>
+<script>
+    $("#topbanner14").on("click",".close",function(){
+        $("#topbanner14").remove();
+    })
+  </script>
+<div class="Header">
+  <div class="Page ">
+    <h1 class="Logo"><a href="http://blog.51cto.com/">Logo</a></h1>
+    <ul class="Navigates fl">
+      <li><a href="http://blog.51cto.com/">首页</a></li>
+      <li><a href="http://blog.51cto.com/original">文章</a></li>
+      <li><a href="http://blog.51cto.com/blog/follow">关注</a></li>
+      <li class="">
+        <a class="column-stress" href="http://blog.51cto.com/cloumn/index">订阅专栏<b></b></a>
+      </li>
+            <li class="">
+        <a href="http://blog.51cto.com/expert">专家</a>
+      </li>
+          </ul>
+    <ul class="Navigates Navigates-right fr">
+      <li class="more maps">
+        <a href="javascript:void(0);">网站导航</a>
+        <div>
+            <a href="http://edu.51cto.com/" target="_blank">学院</a>
+            <a href="http://blog.51cto.com/" target="_blank">博客</a>
+            <a href="http://down.51cto.com/" target="_blank">下载</a>
+            <a href="http://home.51cto.com/" target="_blank">家园</a>
+            <a href="http://bbs.51cto.com/" target="_blank">论坛</a>
+            <a href="http://x.51cto.com/" target="_blank">CTO训练营</a>
+            <a href="http://club.51cto.com/?blog" target="_blank">CTO俱乐部</a>
+            <a href="http://wot.51cto.com/" target="_blank">WOT</a>
+            <a href="http://www.51cto.com/" target="_blank">51CTO</a>
+            <i class="arrow"></i>
+        </div>
+      </li>
+                <li><a href="http://home.51cto.com/user/register?reback=http%253A%252F%252Fblog.51cto.com%252F13589319%252F2121760" target="_self">注册</a></li>
+          <li class="login"><a href="http://blog.51cto.com/user/login?reback=http%3A%2F%2Fblog.51cto.com%2F13589319%2F2121760" target="_self">登录</a></li>
+                        <li class="mRead">
+          <a href="javascript:;">手机阅读</a>
+          <div>
+            <img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/blog_qr.png">
+            <p>扫一扫体验手机阅读</p>
+            <i class="arrow"></i>
+          </div>
+        </li>
+            <li class="search"><a href="http://blog.51cto.com/search/index" target="_self">搜索</a></li>
+                  <li class="write"><a href="javascript:;" onclick="Login()">写文章</a></li>
+                  </ul>
+
+          <div class="clear"></div>
+  </div>
+</div>
+<script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/box.js"></script> 
+<script>
+    var isLogin = '0';
+    var userId = '';
+    var imgpath = 'http://i2.51cto.com/';
+    var BLOG_URL = 'http://blog.51cto.com/';
+    var msg_num_url = '/index/ajax-msg-num';
+    $('.msg-follow, .msg-follow-max').eq(1).css({top: '91px'});
+    $('.msg-follow, .msg-follow-max').eq(2).css({top: '121px'});
+    setTimeout(function(){
+            $.ajax({
+                url:msg_num_url,
+                type:"get",
+                dataType:'json',
+                success:function(res){
+                    if(res.status == '0'){
+                       //
+                       var hasNewMsg = false;
+                       if(res.data.msgNum > 0 && !$('#myMsg i').hasClass('dot')){
+                            $('#myMsg i').addClass('dot');
+                            hasNewMsg = true;
+                       }
+                       if(res.data.notifyNum > 0 && !$('#myNotify i').hasClass('dot')){
+                           $('#myNotify i').addClass('dot');
+                           hasNewMsg = true;
+                       }
+                       if(res.data.recommend_new > 0 && !$('#myRecommend i').hasClass('dot')){
+                           $('#myRecommend i').addClass('dot');
+                           hasNewMsg = true;
+                       }
+                       if(hasNewMsg && !$('#myAllMsg i').hasClass('dot')){
+                           $('#myAllMsg i').addClass('dot');
+                       }
+                    }
+
+                }
+            });
+    },70);
+    //广告图
+ $(function(){
+var timestamp = parseInt(new Date().getTime()/1000);
+var timebegin = parseInt(new Date("2018/08/15 09:00:00").getTime()/1000);
+var timeover = parseInt(new Date("2018/9/1 00:00:00").getTime()/1000);
+ if(timestamp>timebegin && timestamp<timeover){
+     new AutoAD({
+      ADD:$('<a href="http://blog.51cto.com/cloumn/index?tanc" class="closeMB" target="_blank" styel="display:block;"><img src="http://i2.51cto.com/images/blog/201808/22/0f168d54960544eed5629f09dfa9d20f.png"></a><a class="closeMB" style="position: absolute;right:2px;top: 3px;width: 50px;height: 40px;cursor: pointer;" href="javascript:;"></a>'),
+      W:500,
+      H:400,
+      cookie:'blog_activity_blog',
+      mask:"#000",
+      noCBtn: true
+    }) 
+						    }
+						  })    
+
+</script>
+ <script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/entrance.js" id="zhichiScript" class="zhiCustomBtn" data-args="manual=true"></script>
+<a href="javascript:;" class="zhiCustomBtn" style="position: fixed;z-index: 2147483583;width: 64px;height: 61px;right: 40px;
+bottom: 90px;">
+<img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/a85caddab3289f67171e73603665c54e.png"></a>
+<script type="text/javascript">
+var zhiManager = (getzhiSDKInstance());
+zhiManager.on("load", function() {
+    zhiManager.initBtnDOM();
+});
+zhiManager.set('title','领图书');
+zhiManager.set('powered',false);
+zhiManager.set('color', '4285f4');
+zhiManager.set('customBtn', 'true');
+zhiManager.set('moduleType',2);
+zhiManager.set('size',{'width':360,'height':500});
+
+zhiManager.set('userinfo', {partnerId:'',uname:'',params:'{"用户名":""}'});
+zhiManager.set('customMargin', 20);
+zhiManager.set('horizontal', 20);
+zhiManager.set('vertical', 90);
+zhiManager.set('preVisitArgs',{'preVisitUrl': document.referrer?document.referrer:''});
+zhiManager.set('curVisitArgs',{'curVisitUrl': location.href,curVisitTitle:document.title,});
+</script>
+<div class="Content-box" style="min-height: 493px;">
+    	<link rel="stylesheet" href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/mdeShow.css">
+<link rel="stylesheet" href="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/tinyscrollbar.css">
+<script type="text/javascript" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/jquery.tinyscrollbar.js"></script>
+<div class="Content Index" style="padding-bottom: 50px;">
+	<div class="Page M764">
+		<!-- left start -->
+		<div class="artical-Left-blog">
+			<div class="status">
+	        					<a class="tab_name original">原创</a>
+							</div>
+			<h1 class="artical-title">Ubuntu系统利用Vultr服务器搭建SS教程</h1>
+			<div class="artical-title-list">
+				<div class="is-vip-bg-6 fl">
+					<a href="http://blog.51cto.com/13589319" class="a-img" target="_blank"><img class="is-vip-img is-vip-img-4" data-uid="13579319" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/f430224361effb5d127f6ee1f57d329c.jpg"></a>
+				</div>
+				<a href="http://blog.51cto.com/13589319" class="name fl" target="_blank">Geyh</a>
+								<a class="comment comment-num fr"><font class="comment_number">0</font>人评论</a>
+				<span class="fr"></span>
+				<a href="javascript:;" class="read fr">1376人阅读</a>
+				<a href="javascript:;" class="time fr">2018-05-29 21:33:48</a>
+				<div class="clear"></div>
+			</div>
+							<div class="artical-content-bak main-content">
+					<div class="con artical-content editor-preview-side"><p>我这边是用ubuntu在海外服务器上（Vultr）部署的SS，下面来教大家怎么搭（文末附带工具下载地址）：</p>
+<h1>一、购买服务器</h1>
+<p>要搭***，首先得有一个香港或者海外的服务器，这里我用的是Vultr，经过对比Vultr的性价比很高：速度、价格（最便宜的2.5美元）、流量都很不错，如果只用来搭***搓搓有余，还能额外建个小网站。而且可以用支付宝来支付。</p>
+<p>1、注册：</p>
+<p>Vultr注册网址：<a href="https://www.vultr.com/?ref=7225801" rel="nofollow" style="color: rgb(66, 133, 244);">点击进入</a><br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/dc081e2d79bdeb66586c17e6a2778bdc.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>2、充值：Vultr可以选支付宝来充值，支付宝最低充值10美元（少吃几块肉...）<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/0509586d1c43c7ee80998397175297cc.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>3、充值完成后，点Servers，点右上角的加号来添加服务器<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/0b448937d611662e046683e3d97344c2.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>然后选择服务器位置、配置以及系统版本，亚洲推荐东京，美国推荐洛杉矶，其他地方不建议选。当然东京和洛杉矶2.5美元的都是缺货状态，你可以选5美元、10美元的，或者选美国的其他地方，我这边选了纽约，推荐洛杉矶，日本用的人多，晚上会抽风。<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/6b4cae6a626fb4b7225398d2f0b4478f.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>4、系统选择：系统的话，我选择64位的Ubuntu17.10<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/f70063637902ca0dfaf6a7728d178cb8.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>5、选择配置：内存+硬盘+流量=价格<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/728b2a4efa8e3b14d4029daecdcba0d2.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>6、以下的选项不用选择，直接创建。<br>服务器购买完成后，等几分钟，等创建好之后点进去看详情，记住IP地址、用户名和密码。<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/2cca0761d9aaa2918d74f9c3a690fb8c.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<h1>二、配置服务器</h1>
+<p>1、首先我们要做的是连接服务器，我们需要一个ssh客户端来连接，我这边用的是putty（文末附工具下载地址），打开putty后输入服务器的ip地址点open就可以了，然后输入用户名和密码（鼠标右键是粘贴）就进去到你的远程服务器了。<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/4f00f4f963d5a6c34fdd60f9e18a787e.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>2、安装pip和几个依赖包，安装过程遇到Y/n的一律输入Y（按顺序执行下面命令）：</p>
+<blockquote>
+<p>apt-get install python-pip python-gevent python-m2crypto<br>pip install --upgrade setuptools</p>
+</blockquote>
+<p>3、安装SS：</p>
+<blockquote>
+<p>pip install shadowsocks</p>
+</blockquote>
+<p>出现Successfully installed shadowsocks-XXX说明安装成功了<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/f30d55132b335ecb1aef40d718fe7556.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>4、按顺序执行下面命令，在/etc目录下新建文件夹“shadowsocks”,然后在shadowsocks文件夹下新建文件“config.json”：</p>
+<blockquote>
+<p>mkdir /etc/shadowsocks<br>vim /etc/shadowsocks/config.json</p>
+</blockquote>
+<p>输入完上面命令之后出现的页面，就相当于Windows中的记事本。最下一行提示我们当前这个文件是新建的。<br><img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/d34c69a8ff158d00c339d7238ebd252f.png" alt="Ubuntu系统利用Vultr服务器搭建SS教程" style="cursor: pointer;"></p>
+<p>在这个视图中有如下几个按键需要记住“i”：按键盘上的i键，窗口最底下显示“insert”，表示当前文件可编辑。“Esc”：编辑完之后按Esc退出编辑模式。“:”：半角的冒号，在非编辑模式下按键盘上的冒号（半角），可以进入输入命令的模式。“w”：在命令模式中输入w并回车，窗口最下显示“written”，表示所做的更改已保存。“q”：在命令模式中输入q并回车，可以退出当前的编辑器。<br>config.json的内容如下：</p>
+<blockquote>
+<p>{<br>"server":"0.0.0.0",<br>"server_port":8388,<br>"password":"your_password",<br>"timeout":600,<br>"method":"aes-256-cfb",<br>"fast_open": false<br>}</p>
+</blockquote>
+<p>"server"：是你Vultr服务器的ip地址<br>"server_port"和"password"可以根据自己的要求设定<br>如果需要同时开多个端口，config.json的内容可以设置如下：</p>
+<blockquote>
+<p>{<br>"server":"0.0.0.0",<br>"port_password": {<br>"8388": "your_password1",<br>"8389": "your_password2"<br>},<br>"timeout":600,<br>"method":"aes-256-cfb",<br>"fast_open": false<br>}</p>
+</blockquote>
+<p>5、执行以下命令启动Shadowsocks：</p>
+<blockquote>
+<p>ssserver -c /etc/shadowsocks/config.json -d start</p>
+</blockquote>
+<p>停止Shadowsocks执行如下命令：</p>
+<blockquote>
+<p>ssserver -c /etc/shadowsocks/config.json -d stop</p>
+</blockquote>
+<p>6、设置Shadowsocks开机自启动<br>执行下面的命令，创建shadowsocks.servic文件：</p>
+<blockquote>
+<p>vim /etc/systemd/system/shadowsocks.service</p>
+</blockquote>
+<p>shadowsocks.service的内容如下：</p>
+<blockquote>
+<p>[Unit]<br>Description=Shadowsocks<br>After=network.target</p>
+<p>[Service]<br>Type=forking<br>PIDFile=/run/shadowsocks/server.pid<br>PermissionsStartOnly=true<br>ExecStartPre=/bin/mkdir -p /run/shadowsocks<br>ExecStartPre=/bin/chown root:root /run/shadowsocks<br>ExecStart=/usr/local/bin/ssserver --pid-file /var/run/shadowsocks/server.pid -c /etc/shadowsocks/config.json -d start<br>Restart=on-abort<br>User=root<br>Group=root<br>UMask=0027</p>
+<p>[Install]<br>WantedBy=multi-user.target</p>
+</blockquote>
+<p>设置文件权限：</p>
+<blockquote>
+<p>chmod 755 /etc/systemd/system/shadowsocks.service</p>
+</blockquote>
+<p>启动服务：</p>
+<blockquote>
+<p>systemctl start shadowsocks<br>systemctl enable shadowsocks</p>
+</blockquote>
+<h1>三、Final</h1>
+<p>好了，到此，你的***已经搭好了，你现在只要去下载shadowsocks的客户端填上Config.json中的ip地址、端口号、以及密码就可以上你想上的网站了。</p>
+<p><del>云盘（密码：9x4g）</del>暂停客户端下载</p></div>
+				</div>
+													<div class="artical-copyright mt26">©著作权归作者所有：来自51CTO博客作者Geyh的原创作品，如需转载，请注明出处，否则将追究法律责任</div>
+									<div class="for-tag mt26">
+																						<a href="http://blog.51cto.com/search/result?q=Vultr" target="_blank">Vultr</a>
+																								<a href="http://blog.51cto.com/search/result?q=%E6%90%AD%E5%BB%BA" target="_blank">搭建</a>
+																								<a href="http://blog.51cto.com/search/result?q=SS" target="_blank">SS</a>
+																										                				<div class="clear"></div>
+			</div>
+			<div class="more-list">
+				<p class="is-praise fl "><span type="1" blog_id="2121760" userid="13579319">0</span></p>
+				<div class="share-box fr">
+					<p class="share"><i></i>分享</p>
+					<div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1535198026119">
+					  <span></span>
+					  <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">微博</a>
+					  <a class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">QQ</a>
+					  <a class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+					  <img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/qr-url">
+					</div>
+				</div>
+				<p class="favorites favorites-opt fr"><i></i>收藏</p>
+								<div class="clear"></div>
+			</div>
+							<div class="artical-list">
+	            					<a class="fl" href="http://blog.51cto.com/13589319/2121304" title="双系统Ubuntu无法访问windows磁盘">
+						上一篇：双系统Ubuntu无法访问win...</a>
+	            	            					<a class="fr" href="http://blog.51cto.com/13589319/2121804" title="CentOS 7 安装 zookeeper集群">
+						下一篇：CentOS 7 安装 zook...</a>
+	            					<div class="clear"></div>
+				</div>
+						<div class="author-module">
+				<div class="is-vip-bg-6 fl">
+					<a href="http://blog.51cto.com/13589319" class="a-img" target="_blank">
+						<img class="is-vip-img is-vip-img-4" data-uid="13579319" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/f430224361effb5d127f6ee1f57d329c.jpg">
+					</a>
+				</div>
+				<div class="author-module-center fl">
+					<a class="h2" href="http://blog.51cto.com/13589319" target="_blank">Geyh</a>
+					<h3>38篇文章，8W+人气，0粉丝</h3>
+									</div>
+								<div class="clear"></div>
+			</div>
+		</div>
+		<div class="artical-Left" id="comment">
+			<!-- 发布评论 -->
+			<div class="comment-creat">
+				<div class="is-vip-bg-6 fl">
+					<a href="http://blog.51cto.com/13589319" class="header-img" target="_blank">
+						<img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/noavatar_middle.gif">
+					</a>
+				</div>
+				<div class="first-publish fr publish_user_id">
+					<textarea class="textareadiv textareadiv-publish" name="" id="" placeholder="提问和评论都可以，用心的回复会被更多人看到和认可" maxlength="500"></textarea>
+					<div class="comment-push">
+						<p class="msg fl">Ctrl+Enter&nbsp;发布</p>
+													<p class="publish-btn blue-btn fr" flag="1">发布</p>
+												<p class="cancel-btn cancel-btn-1 fr">取消</p>
+						<div class="clear"></div>
+					</div>
+					<input type="hidden" class="user_id" value="13579319">
+					<input type="hidden" class="reply_id" value="2121760">
+					<input type="hidden" class="first_pid" value="">
+				</div>
+				<div class="clear"></div>
+			</div>
+						<div class="commentList"></div>
+			<!-- page -->
+			<div class="act_pageList_box"></div>
+		</div>
+		<!-- end left -->
+		<!-- right start -->
+		<div class="Blog-Right artical-Right">
+			<a class="catalog" style="display: block;"></a>
+			<a class="scrollTop" href="javascript:void(0);" onclick="$(window).scrollTop(0);" style="display: block;"></a>
+		<div class="directoryBox"><span class="top-icon"></span><div class="list directory"><ul class="directory-list"><li class="lv1">第1章&nbsp;&nbsp;一、购买服务器</li><li class="lv1 on">第2章&nbsp;&nbsp;二、配置服务器</li><li class="lv1">第3章&nbsp;&nbsp;三、Final</li><div class="arrow" style="top: 47px;"></div></ul></div><span class="bot-icon"></span></div></div>
+		<!-- end right  -->
+	</div>
+			<div class="special-column">
+			<div class="Page M764">
+									<div class="column-1">
+						<h2 class="column-tit">推荐专栏</h2>
+													<div class="column-box">
+								<a href="http://blog.51cto.com/cloumn/detail/18" class="a-img fl cloumn-tab-par" target="_blank">
+									<img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/45862f289339dc922ffda669fd74ad9b.jpg">
+                					                						<span class="cloumn-tab-new cloumn-tab-new-1 cloumn-tab2 f12">上新</span>
+																	</a>
+								<div class="center fl">
+									<a class="h2 white-space left-list" href="http://blog.51cto.com/cloumn/detail/18" target="_blank">网工2.0晋级攻略 ——零基础入门Python/Ansible</a>
+									<h3 class="white-space">网络工程师2.0进阶指南</h3>
+									<h4 class="white-space">共30章&nbsp;|&nbsp;<a href="http://blog.51cto.com/gingerbeer" target="_blank">姜汁啤酒</a></h4>
+									<h5><span class="price">￥51.00</span><span>269人订阅</span></h5>
+								</div>
+								<div class="right fr">
+							        								          <a class="cloumn-subscribe left-list" cid="18" href="http://blog.51cto.com/cloumn/detail/18" ask="1" target="_blank">订阅</a>
+								    								</div>
+								<div class="clear"></div>
+							</div>
+													<div class="column-box">
+								<a href="http://blog.51cto.com/cloumn/detail/9" class="a-img fl cloumn-tab-par" target="_blank">
+									<img src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/3882f19e0dbbfe0017042de1523e35cf.png">
+                															<span class="cloumn-tab-new cloumn-tab-new-1 cloumn-tab1 f12">最近更新</span>
+                													</a>
+								<div class="center fl">
+									<a class="h2 white-space left-list" href="http://blog.51cto.com/cloumn/detail/9" target="_blank">CTO成长的道与术</a>
+									<h3 class="white-space">互联网名企晋升之道</h3>
+									<h4 class="white-space">共34章&nbsp;|&nbsp;<a href="http://blog.51cto.com/gaozhao" target="_blank">CTO训练营</a></h4>
+									<h5><span class="price">￥51.00</span><span>100人订阅</span></h5>
+								</div>
+								<div class="right fr">
+							        								          <a class="cloumn-subscribe left-list" cid="9" href="http://blog.51cto.com/cloumn/detail/9" ask="1" target="_blank">订阅</a>
+								    								</div>
+								<div class="clear"></div>
+							</div>
+											</div>
+													<div class="column-2" style="margin-top: 76px;">
+						<h2 class="column-tit">猜你喜欢</h2>
+						<div class="column-box">
+															<a class="white-space" href="http://blog.51cto.com/13589319/2133907?source=dra" target="_blank">使用docker安装onlyoffice Document Server，同时解决中文乱码</a>
+															<a class="white-space left-list" href="http://blog.51cto.com/13589319/2131953?source=dra" target="_blank">linux Nodejs安装方式</a>
+															<a class="white-space" href="http://blog.51cto.com/storysky/1158707?source=drt" target="_blank">用Kibana和logstash快速搭建实时日志查询、收集与分析系统</a>
+															<a class="white-space left-list" href="http://blog.51cto.com/lavasoft/99151?source=drt" target="_blank">Java线程：创建与启动</a>
+															<a class="white-space" href="http://blog.51cto.com/linuxguest/287311?source=drt" target="_blank">企业邮件系统搭建-关于不能往yahoo,sina，hotmail地址发邮件的问题二</a>
+															<a class="white-space left-list" href="http://blog.51cto.com/sun510/2162465?source=drh" target="_blank">虚拟机vmdk文件误删除怎么恢复</a>
+															<a class="white-space" href="http://blog.51cto.com/sun510/2161218?source=drh" target="_blank">DELL EqualLogic PS6100存储数据恢复成功案例</a>
+															<a class="white-space left-list" href="http://blog.51cto.com/13571885/2160260?source=drh" target="_blank">51CTO技术社区13周年庆，技术图书、定制T恤免费领</a>
+														<div class="clear"></div>
+						</div>
+					</div>
+							</div>
+		</div>
+		<div class="the-lowest-bg">
+		<div class="the-lowest Page M764">
+			<p class="is-praise fl "><span type="1" blog_id="2121760" userid="13579319"></span></p>
+			<p class="b-favorites favorites-opt fl"><i></i><b>0</b></p>
+			<a class="b-reply fl"><i></i><font class="comment_number"></font></a>
+			<div class="b-share fl">
+				<i></i>分享
+				<div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1535198026119">
+				  <a class="bds_tsina p2" data-cmd="tsina" title="分享到新浪微博"></a>
+				  <a class="bds_sqq p3" data-cmd="sqq" title="分享到QQ好友"></a>
+				  <a class="bds_weixin p1" data-cmd="weixin" title="分享到微信"><em class="code-icon"></em><img class="code-img" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/qr-url"></a>
+				</div>
+			</div>
+      			<a href="http://blog.51cto.com/13589319" class="b-name fr">Geyh</a>
+			<div class="is-vip-bg-6 fr">
+				<a href="http://blog.51cto.com/13589319" class="b-img"><img class="is-vip-img is-vip-img-4" data-uid="13579319" src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/f430224361effb5d127f6ee1f57d329c.jpg"></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<!-- 老博文美观处理 -->
+<script>
+	var praise_url = 'http://blog.51cto.com/praise/praise'
+    	addReply_url = 'http://blog.51cto.com/comments/add'
+    	removeUrl = 'http://blog.51cto.com/comments/del'
+    	blog_id = '2121760'
+    	rid = '0'
+    	is_comment = '0'
+    	comment_list = '/blog/ajax-comment-list'
+    	comment_sort = "asc"
+    	index_url = 'http://blog.51cto.com/13589319';
+    	uc_url = 'http://ucenter.51cto.com/'
+    	blog_url = 'http://blog.51cto.com/'
+    	img_url = 'https://static1.51cto.com/edu/blog/'
+    	i_user_id = ''
+    	c_user_id ='13579319'
+    	collect_url = 'http://blog.51cto.com/collect/add'
+    	is_old = '0'
+    	nicknameurl = 'http://blog.51cto.com/13589319'
+    	nickname = 'Geyh'
+    	myself = window.location.href;
+	$('.you-like-list li:odd').css({'margin-left': '10%'});
+	$('.column-box a:odd').addClass('left-list')
+	$('.myUrl').text(myself).click(function(){window.open(myself)})
+	setTimeout(function(){$('.Footer').css({'margin-top':'-50px'})},50)
+        	if(is_old==1){
+    // SyntaxHighlighter.all();
+    insertCodeElement("\u6211\u8fd9\u8fb9\u662f\u7528ubuntu\u5728\u6d77\u5916\u670d\u52a1\u5668\u4e0a\uff08Vultr\uff09\u90e8\u7f72\u7684SS\uff0c\u4e0b\u9762\u6765\u6559\u5927\u5bb6\u600e\u4e48\u642d\uff08\u6587\u672b\u9644\u5e26\u5de5\u5177\u4e0b\u8f7d\u5730\u5740\uff09\uff1a\n\n# \u4e00\u3001\u8d2d\u4e70\u670d\u52a1\u5668\n\u8981\u642d\u68af\u5b50\uff0c\u9996\u5148\u5f97\u6709\u4e00\u4e2a\u9999\u6e2f\u6216\u8005\u6d77\u5916\u7684\u670d\u52a1\u5668\uff0c\u8fd9\u91cc\u6211\u7528\u7684\u662fVultr\uff0c\u7ecf\u8fc7\u5bf9\u6bd4Vultr\u7684\u6027\u4ef7\u6bd4\u5f88\u9ad8\uff1a\u901f\u5ea6\u3001\u4ef7\u683c\uff08\u6700\u4fbf\u5b9c\u76842.5\u7f8e\u5143\uff09\u3001\u6d41\u91cf\u90fd\u5f88\u4e0d\u9519\uff0c\u5982\u679c\u53ea\u7528\u6765\u642d\u68af\u5b50\u6413\u6413\u6709\u4f59\uff0c\u8fd8\u80fd\u989d\u5916\u5efa\u4e2a\u5c0f\u7f51\u7ad9\u3002\u800c\u4e14\u53ef\u4ee5\u7528\u652f\u4ed8\u5b9d\u6765\u652f\u4ed8\u3002\n\n1\u3001\u6ce8\u518c\uff1a\n\nVultr\u6ce8\u518c\u7f51\u5740\uff1a[\u70b9\u51fb\u8fdb\u5165](https:\/\/www.vultr.com\/?ref=7225801)\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/dc081e2d79bdeb66586c17e6a2778bdc.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n2\u3001\u5145\u503c\uff1aVultr\u53ef\u4ee5\u9009\u652f\u4ed8\u5b9d\u6765\u5145\u503c\uff0c\u652f\u4ed8\u5b9d\u6700\u4f4e\u5145\u503c10\u7f8e\u5143\uff08\u5c11\u5403\u51e0\u5757\u8089...\uff09\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/0509586d1c43c7ee80998397175297cc.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n3\u3001\u5145\u503c\u5b8c\u6210\u540e\uff0c\u70b9Servers\uff0c\u70b9\u53f3\u4e0a\u89d2\u7684\u52a0\u53f7\u6765\u6dfb\u52a0\u670d\u52a1\u5668\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/0b448937d611662e046683e3d97344c2.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n\u7136\u540e\u9009\u62e9\u670d\u52a1\u5668\u4f4d\u7f6e\u3001\u914d\u7f6e\u4ee5\u53ca\u7cfb\u7edf\u7248\u672c\uff0c\u4e9a\u6d32\u63a8\u8350\u4e1c\u4eac\uff0c\u7f8e\u56fd\u63a8\u8350\u6d1b\u6749\u77f6\uff0c\u5176\u4ed6\u5730\u65b9\u4e0d\u5efa\u8bae\u9009\u3002\u5f53\u7136\u4e1c\u4eac\u548c\u6d1b\u6749\u77f62.5\u7f8e\u5143\u7684\u90fd\u662f\u7f3a\u8d27\u72b6\u6001\uff0c\u4f60\u53ef\u4ee5\u90095\u7f8e\u5143\u300110\u7f8e\u5143\u7684\uff0c\u6216\u8005\u9009\u7f8e\u56fd\u7684\u5176\u4ed6\u5730\u65b9\uff0c\u6211\u8fd9\u8fb9\u9009\u4e86\u7ebd\u7ea6\uff0c\u63a8\u8350\u6d1b\u6749\u77f6\uff0c\u65e5\u672c\u7528\u7684\u4eba\u591a\uff0c\u665a\u4e0a\u4f1a\u62bd\u98ce\u3002\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/6b4cae6a626fb4b7225398d2f0b4478f.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n4\u3001\u7cfb\u7edf\u9009\u62e9\uff1a\u7cfb\u7edf\u7684\u8bdd\uff0c\u6211\u9009\u62e964\u4f4d\u7684Ubuntu17.10\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/f70063637902ca0dfaf6a7728d178cb8.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n5\u3001\u9009\u62e9\u914d\u7f6e\uff1a\u5185\u5b58+\u786c\u76d8+\u6d41\u91cf=\u4ef7\u683c\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/728b2a4efa8e3b14d4029daecdcba0d2.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n6\u3001\u4ee5\u4e0b\u7684\u9009\u9879\u4e0d\u7528\u9009\u62e9\uff0c\u76f4\u63a5\u521b\u5efa\u3002\n\u670d\u52a1\u5668\u8d2d\u4e70\u5b8c\u6210\u540e\uff0c\u7b49\u51e0\u5206\u949f\uff0c\u7b49\u521b\u5efa\u597d\u4e4b\u540e\u70b9\u8fdb\u53bb\u770b\u8be6\u60c5\uff0c\u8bb0\u4f4fIP\u5730\u5740\u3001\u7528\u6237\u540d\u548c\u5bc6\u7801\u3002\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/2cca0761d9aaa2918d74f9c3a690fb8c.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n# \u4e8c\u3001\u914d\u7f6e\u670d\u52a1\u5668\n1\u3001\u9996\u5148\u6211\u4eec\u8981\u505a\u7684\u662f\u8fde\u63a5\u670d\u52a1\u5668\uff0c\u6211\u4eec\u9700\u8981\u4e00\u4e2assh\u5ba2\u6237\u7aef\u6765\u8fde\u63a5\uff0c\u6211\u8fd9\u8fb9\u7528\u7684\u662fputty\uff08\u6587\u672b\u9644\u5de5\u5177\u4e0b\u8f7d\u5730\u5740\uff09\uff0c\u6253\u5f00putty\u540e\u8f93\u5165\u670d\u52a1\u5668\u7684ip\u5730\u5740\u70b9open\u5c31\u53ef\u4ee5\u4e86\uff0c\u7136\u540e\u8f93\u5165\u7528\u6237\u540d\u548c\u5bc6\u7801\uff08\u9f20\u6807\u53f3\u952e\u662f\u7c98\u8d34\uff09\u5c31\u8fdb\u53bb\u5230\u4f60\u7684\u8fdc\u7a0b\u670d\u52a1\u5668\u4e86\u3002\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/4f00f4f963d5a6c34fdd60f9e18a787e.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n2\u3001\u5b89\u88c5pip\u548c\u51e0\u4e2a\u4f9d\u8d56\u5305\uff0c\u5b89\u88c5\u8fc7\u7a0b\u9047\u5230Y\/n\u7684\u4e00\u5f8b\u8f93\u5165Y\uff08\u6309\u987a\u5e8f\u6267\u884c\u4e0b\u9762\u547d\u4ee4\uff09\uff1a\n> apt-get install python-pip python-gevent python-m2crypto\n> pip install --upgrade setuptools\n\n3\u3001\u5b89\u88c5SS\uff1a\n> pip install shadowsocks\n\n\u51fa\u73b0Successfully installed shadowsocks-XXX\u8bf4\u660e\u5b89\u88c5\u6210\u529f\u4e86\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/f30d55132b335ecb1aef40d718fe7556.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n4\u3001\u6309\u987a\u5e8f\u6267\u884c\u4e0b\u9762\u547d\u4ee4\uff0c\u5728\/etc\u76ee\u5f55\u4e0b\u65b0\u5efa\u6587\u4ef6\u5939\u201cshadowsocks\u201d,\u7136\u540e\u5728shadowsocks\u6587\u4ef6\u5939\u4e0b\u65b0\u5efa\u6587\u4ef6\u201cconfig.json\u201d\uff1a\n> mkdir \/etc\/shadowsocks\n> vim \/etc\/shadowsocks\/config.json\n\n\u8f93\u5165\u5b8c\u4e0a\u9762\u547d\u4ee4\u4e4b\u540e\u51fa\u73b0\u7684\u9875\u9762\uff0c\u5c31\u76f8\u5f53\u4e8eWindows\u4e2d\u7684\u8bb0\u4e8b\u672c\u3002\u6700\u4e0b\u4e00\u884c\u63d0\u793a\u6211\u4eec\u5f53\u524d\u8fd9\u4e2a\u6587\u4ef6\u662f\u65b0\u5efa\u7684\u3002\n![](http:\/\/i2.51cto.com\/images\/blog\/201805\/29\/d34c69a8ff158d00c339d7238ebd252f.png?x-oss-process=image\/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)\n\n\u5728\u8fd9\u4e2a\u89c6\u56fe\u4e2d\u6709\u5982\u4e0b\u51e0\u4e2a\u6309\u952e\u9700\u8981\u8bb0\u4f4f\u201ci\u201d\uff1a\u6309\u952e\u76d8\u4e0a\u7684i\u952e\uff0c\u7a97\u53e3\u6700\u5e95\u4e0b\u663e\u793a\u201cinsert\u201d\uff0c\u8868\u793a\u5f53\u524d\u6587\u4ef6\u53ef\u7f16\u8f91\u3002\u201cEsc\u201d\uff1a\u7f16\u8f91\u5b8c\u4e4b\u540e\u6309Esc\u9000\u51fa\u7f16\u8f91\u6a21\u5f0f\u3002\u201c:\u201d\uff1a\u534a\u89d2\u7684\u5192\u53f7\uff0c\u5728\u975e\u7f16\u8f91\u6a21\u5f0f\u4e0b\u6309\u952e\u76d8\u4e0a\u7684\u5192\u53f7\uff08\u534a\u89d2\uff09\uff0c\u53ef\u4ee5\u8fdb\u5165\u8f93\u5165\u547d\u4ee4\u7684\u6a21\u5f0f\u3002\u201cw\u201d\uff1a\u5728\u547d\u4ee4\u6a21\u5f0f\u4e2d\u8f93\u5165w\u5e76\u56de\u8f66\uff0c\u7a97\u53e3\u6700\u4e0b\u663e\u793a\u201cwritten\u201d\uff0c\u8868\u793a\u6240\u505a\u7684\u66f4\u6539\u5df2\u4fdd\u5b58\u3002\u201cq\u201d\uff1a\u5728\u547d\u4ee4\u6a21\u5f0f\u4e2d\u8f93\u5165q\u5e76\u56de\u8f66\uff0c\u53ef\u4ee5\u9000\u51fa\u5f53\u524d\u7684\u7f16\u8f91\u5668\u3002\nconfig.json\u7684\u5185\u5bb9\u5982\u4e0b\uff1a\n\n> {\n>     \"server\":\"0.0.0.0\",\n>     \"server_port\":8388,\n>     \"password\":\"your_password\",\n>     \"timeout\":600,\n>     \"method\":\"aes-256-cfb\",\n>     \"fast_open\": false\n> }\n\n\"server\"\uff1a\u662f\u4f60Vultr\u670d\u52a1\u5668\u7684ip\u5730\u5740\n\"server_port\"\u548c\"password\"\u53ef\u4ee5\u6839\u636e\u81ea\u5df1\u7684\u8981\u6c42\u8bbe\u5b9a\n\u5982\u679c\u9700\u8981\u540c\u65f6\u5f00\u591a\u4e2a\u7aef\u53e3\uff0cconfig.json\u7684\u5185\u5bb9\u53ef\u4ee5\u8bbe\u7f6e\u5982\u4e0b\uff1a\n\n> {\n>     \"server\":\"0.0.0.0\",\n>     \"port_password\": {\n>         \"8388\": \"your_password1\",\n>         \"8389\": \"your_password2\"\n>     },\n>     \"timeout\":600,\n>     \"method\":\"aes-256-cfb\",\n>     \"fast_open\": false\n> }\n\n5\u3001\u6267\u884c\u4ee5\u4e0b\u547d\u4ee4\u542f\u52a8Shadowsocks\uff1a\n> ssserver -c \/etc\/shadowsocks\/config.json -d start\n\n\u505c\u6b62Shadowsocks\u6267\u884c\u5982\u4e0b\u547d\u4ee4\uff1a\n\n> ssserver -c \/etc\/shadowsocks\/config.json -d stop\n\n6\u3001\u8bbe\u7f6eShadowsocks\u5f00\u673a\u81ea\u542f\u52a8\n\u6267\u884c\u4e0b\u9762\u7684\u547d\u4ee4\uff0c\u521b\u5efashadowsocks.servic\u6587\u4ef6\uff1a\n> vim \/etc\/systemd\/system\/shadowsocks.service\n\nshadowsocks.service\u7684\u5185\u5bb9\u5982\u4e0b\uff1a\n\n> [Unit]\n> Description=Shadowsocks\n> After=network.target\n> \n> [Service]\n> Type=forking\n> PIDFile=\/run\/shadowsocks\/server.pid\n> PermissionsStartOnly=true\n> ExecStartPre=\/bin\/mkdir -p \/run\/shadowsocks\n> ExecStartPre=\/bin\/chown root:root \/run\/shadowsocks\n> ExecStart=\/usr\/local\/bin\/ssserver --pid-file \/var\/run\/shadowsocks\/server.pid -c \/etc\/shadowsocks\/config.json -d start\n> Restart=on-abort\n> User=root\n> Group=root\n> UMask=0027\n> \n> [Install]\n> WantedBy=multi-user.target\n\n\u8bbe\u7f6e\u6587\u4ef6\u6743\u9650\uff1a\n\n> chmod 755 \/etc\/systemd\/system\/shadowsocks.service\n\n\u542f\u52a8\u670d\u52a1\uff1a\n\n> systemctl start shadowsocks\n> systemctl enable shadowsocks\n\n# \u4e09\u3001Final\n\u597d\u4e86\uff0c\u5230\u6b64\uff0c\u4f60\u7684\u68af\u5b50\u5df2\u7ecf\u642d\u597d\u4e86\uff0c\u4f60\u73b0\u5728\u53ea\u8981\u53bb\u4e0b\u8f7dshadowsocks\u7684\u5ba2\u6237\u7aef\u586b\u4e0aConfig.json\u4e2d\u7684ip\u5730\u5740\u3001\u7aef\u53e3\u53f7\u3001\u4ee5\u53ca\u5bc6\u7801\u5c31\u53ef\u4ee5\u4e0a\u4f60\u60f3\u4e0a\u7684\u7f51\u7ad9\u4e86\u3002\n\n~~\u4e91\u76d8\uff08\u5bc6\u7801\uff1a9x4g\uff09~~\u6682\u505c\u5ba2\u6237\u7aef\u4e0b\u8f7d", '#result');
+  }
+
+  function insertCodeElement(content, container){
+    container = container || document;
+    // 创建一个 div 来放置获取到的内容，这样就可以把 content 字符串内容转换成 dom
+    // 方便我们对这个 dom 进行操作（只是创建 div，并没有插入到文档，他只存在于内存中）
+    var parent = document.createElement('div');
+    parent.innerHTML = content;
+
+    // 找到 parent 中的所有 pre 标签，并遍历
+    var $pres = $(parent).find('pre');
+    $pres.each(function(index, el) {
+      var $el = $(el),
+          html = $el.html(),
+          code = document.createElement('code'),
+          elClass = $el.attr('class');
+      if(!elClass) {return};
+          // 获取 pre 标签中，class 属性中包含的本段代码所有的编程语言
+      var language = elClass.substring(6, elClass.indexOf(';'));
+
+      code.className = 'language-' + language;
+      code.innerHTML = html;
+
+      $el.html(code);
+    });
+
+    $(container).html(parent.innerHTML);
+
+    // 最后，调用 Prism 的方法来高亮代码
+    Prism.highlightAll();
+  }
+	window._bd_share_config={
+    "common":{
+      "bdText":"Ubuntu系统利用Vultr服务器搭建SS教程",
+      "bdDesc":$("#abstract_bdshare").text(),
+      "bdMini":"2",
+      "bdMiniList":false,
+      "bdPic":"https://s1.51cto.com/images/201710/25/bd540a4f14d822f6e69087758699358b.jpg",
+      "bdStyle":"0",
+      "bdSize":"16"
+    },
+    "share":{}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  setTimeout(function(){
+  	$('.bdsharebuttonbox a').removeAttr('title')
+  },1000)
+</script>
+</div>
+<script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/marked.min.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/highlight.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/detail_mp.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/detail.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/details_new.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/copy.js"></script>    <script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/pvlog.js"></script>
+<script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/count.js"></script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/count.php"></script>
+<script>
+  $(".gotop").click(function(){$(window).scrollTop(0)})
+</script>
+
+
+    <script type="text/javascript">
+    //百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2283d46608159c3b39fc9f1178809c21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+    //自动推送链接
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8c51975c40edfb67']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+      document.write(decodeURI("%3Cscript src='https://tongji.51cto.com/frontend/tj.gif' type='text/javascript'%3E%3C/script%3E"));
+    </script><script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/tj.gif" type="text/javascript"></script><div id="zhichiBtnBox" style="position: fixed; z-index: 2147483583; box-shadow: rgba(15, 66, 76, 0.25) 0px 0px 14px 0px; width: 60px; height: 60px; border-radius: 50%; background-color: rgb(66, 133, 244); background-image: url(&quot;//www.sobot.com/chat/frame/imgs/icon.png&quot;); background-repeat: no-repeat; background-position: 18px -58px; right: 40px; bottom: 90px; display: none;"><a hidefocus="" id="zhichiBtn" style="position:relative;text-decoration: none; outline: none; font-family: Microsoft Yahei, Arial, Helvetica; color: #fff; font-size: 16px; display: inline-block; margin: 0; padding: 0; border: none; line-height:43px; float:none;width:100%;height:100%;border-radius:50%;"><span class="zc-advice-icon-btn-title" style="box-shadow: rgba(107, 113, 114, 0.15) 0px 2px 4px 0px; border: 1px solid rgb(235, 239, 240); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica; color: rgb(85, 85, 86); font-size: 13px; margin: 0px; text-align: right; background: rgb(255, 255, 255); position: absolute; top: 15px; right: 70px; text-overflow: ellipsis; white-space: nowrap; word-break: normal; display: none; border-radius: 3px; padding: 0px 5px; height: 30px; line-height: 30px;">领图书</span></a><i style="position:absolute;top:0px;right:0px;padding:1px;line-height:20px;text-align:center;color:#fff;font-weight:bold;height:18px;min-width:18px;background-color:#ed5c5c;border-radius:18px;font-size:12px;display:none;font-style:normal;" id="zhichiCount"></i></div>
+    
+<script>
+  var uid = '';
+  var BLOG_URL = 'http://blog.51cto.com/';
+</script>
+<script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/jquery.cookie.js"></script>
+<script src="./Ubuntu系统利用Vultr服务器搭建SS教程-Geyh的博客-51CTO博客_files/time-on-page.js" charset="utf-8"></script>
+<script>
+    (function(){
+        var wh=$(window).height(),fh=$('.Footer').outerHeight(true),hh=$('.Header').outerHeight(true)
+        $('.Content-box').css({'min-height': wh-fh-hh})
+    })()
+</script>
+
+
+</body></html>
