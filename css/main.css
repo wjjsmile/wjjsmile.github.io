@@ -1852,7 +1852,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffa6ff;
+  background: #fc79a1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2491,7 +2491,7 @@ ul.breadcrumb li+li:last-child {
 }
 @media screen and (min-width: 768px) {
   body {
-    background: url("/images/background.jpg");
+    background: url("/images/background.png");
     background-size: 100% 100%;
     background-attachment: fixed;
   }
